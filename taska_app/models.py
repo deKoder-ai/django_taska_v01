@@ -5,10 +5,21 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
-# authentication model
 class User(AbstractUser):
-  # Add custom fields here if needed
-  pass
+  is_active = models.BooleanField(
+    default=True,
+    help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'
+  )
+
+  def soft_delete(self):
+    """Deactivate user instead of deleting"""
+    self.is_active = False
+    self.save()
+
+  class Meta:
+    permissions = [
+      ('can_undelete', 'Can restore deleted users'),
+    ]
 
 # task models
 User = get_user_model()
