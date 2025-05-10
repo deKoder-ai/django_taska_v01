@@ -1,0 +1,194 @@
+@import url(./reset.css);
+@import url(../fonts/poppins.css);
+
+@font-face {
+  font-family: dechora;
+  src: url(../fonts/dechora-zone.woff2) format('woff2');
+}
+@font-face {
+  font-family: journal;
+  src: url(../fonts/journal.woff2) format('woff2');
+}
+@font-face {
+  font-family: aks;
+  src: url(../fonts/AksaramateeBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: aksItalic;
+  src: url(../fonts/AksaramateeBoldItalic.woff2) format('woff2');
+}
+
+#root {
+  /* color-scheme: light dark; */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* variables */
+  --font-stack: poppins, system-ui, Helvetica, sans-serif;
+  --dechora-stack: dechora, system-ui, sans-serif;
+  --journal-stack: journal, system-ui, sans-serif;
+  --aks-stack: aks, system-ui, sans-serif;
+  --aksItalic-stack: aksItalic, system-ui, sans-serif;
+  /* site colors */
+  --color: #ffffffde;
+  --bcg: #141424;
+  --red: #aa3633;
+  --blue: #6495ed;
+  --beige: #bd9a73;
+  --beige-shadow: #836c528c;
+  --bcgcol: #2c2d2d;
+  --bcgcol2: #422f2f;
+  --textcol: #fffeff;
+  --dark: #1b1b1b;
+  --invis: #00000000;
+}
+
+html {
+  font-family: var(--font-stack);
+  /* Avenir,  */
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color);
+  background-color: var(--bcg);
+  /* overflow-x: hidden; */
+}
+
+a {
+  font-weight: 500;
+  color: var(--red);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+body {
+  /* margin: 0; */
+  /* display: flex;
+  place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+}
+button {
+  cursor: pointer;
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+.navbar {
+  width: 100vw;
+  height: 50px;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 200px 2fr 1fr 1fr 1fr 70px;
+  color: var(--red);
+  border-bottom: 2px solid var(--beige);
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: var(--poppins-stack);
+  font-weight: 600;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px 2px #d1194770;
+}
+.logo:hover, .nav-link:hover {
+  color: var(--red);
+  text-decoration: none;
+  border-left: 2px solid #ffffff28;
+  border-right: 2px solid #ffffff28;
+  text-shadow: -1px -1px 2px #e9033d5d;
+}
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--poppins-stack);
+  color: var(--textcol);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  text-shadow: -1px -1px 2px #e9033d5d;
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+
+.foot {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--poppins-stack);
+  color: var(--textcol);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  text-shadow: -1px -1px 2px #e9033d5d;
+  border-top: 2px solid var(--beige);
+}
+/* .footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--poppins-stack);
+  color: var(--textcol);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  text-shadow: -1px -1px 2px #e9033d5d;
+} */
+
+.card {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .leaflet-container {
+  width: 100%;
+  height: 500px;
+} */
+.leaflet-popup-content {
+  font-family: dechora, sans-serif;  /* Change font */
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  font-size: 1.8rem;  /* Adjust font size */
+  color: #000000;  /* Text color */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

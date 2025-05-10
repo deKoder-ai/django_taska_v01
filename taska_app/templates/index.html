@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}  <!-- Add this line -->
+
+{% block extra_css %}
+  <link rel='stylesheet' href='{% static "css/index.css" %}'>
+{% endblock %}
+
+{% block content %}
+  <h1>HELLO WORLD</h1>
+{% endblock %}
+
+{% block extra_js %}
+  <script src='{% static "js/index.js" %}'></script>
+{% endblock %}
