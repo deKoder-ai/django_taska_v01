@@ -16,8 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from taska_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('taska_app.urls')),
+    
+    # Custom auth URLs
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='taska_app/login.html'), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/register/', views.register, name='register'),
+    
+    # Include the rest of auth URLs (password reset, etc.)
+    path('accounts/', include('django.contrib.auth.urls')),
+    
+    # Your app URLs
+    path('', views.index, name='index'),
+    path('taska/', views.taska, name='taska'),
 ]

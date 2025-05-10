@@ -1,0 +1,7 @@
+{% extends 'taska_app/base.html' %}
+
+{% block content %}
+  <h1>Task A</h1>
+  <p>This is protected content for logged-in users only.</p>
+  <p><a href="{% url 'index' %}">Return to home</a></p>
+{% endblock %}

@@ -55,8 +55,8 @@ ROOT_URLCONF = 'taska_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # Optional: for project-wide templates
+        'APP_DIRS': True,  # Important: must be True to find app templates
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -121,3 +121,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'taska'
+LOGOUT_REDIRECT_URL = 'index'
+
+# For "remember me" functionality
+SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds (optional)
+SESSION_SAVE_EVERY_REQUEST = True
+
+AUTH_USER_MODEL = 'taska_app.User'

@@ -168,17 +168,7 @@ button {
   align-items: center;
 }
 
-/* .leaflet-container {
-  width: 100%;
-  height: 500px;
-} */
-.leaflet-popup-content {
-  font-family: dechora, sans-serif;  /* Change font */
-  letter-spacing: 0.1rem;
-  font-weight: bold;
-  font-size: 1.8rem;  /* Adjust font size */
-  color: #000000;  /* Text color */
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {

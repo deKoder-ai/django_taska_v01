@@ -12,5 +12,9 @@ python3 manage.py migrate
 python3 manage.py runserver
 
 To do:
+- Build task list models
 - Views/forms to handle file uploads for attachment
 - Add validation (e.g., completed_date only set if completed=True)
+- Remove references to taska.html
+  - project urls.py
+  - app views.py
