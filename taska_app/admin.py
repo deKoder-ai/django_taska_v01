@@ -51,3 +51,4 @@ class CustomUserAdmin(UserAdmin):
         return super().delete_view(request, object_id, extra_context)
 
 admin.site.register(User, CustomUserAdmin)
+

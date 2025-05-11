@@ -27,9 +27,11 @@ User = get_user_model()
 def one_week_hence():
   return timezone.now() + timezone.timedelta(days=7)
 
-class TaskList(models.Model):
+class Project(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   title = models.CharField(max_length=100, unique=True)
   created_date = models.DateTimeField(auto_now_add=True)
+  due_date = models.DateTimeField(default=one_week_hence)
 
   def get_absolute_url(self):
     return reverse('list', args=[self.id])
@@ -37,7 +39,7 @@ class TaskList(models.Model):
   def __str__(self):
     return self.title
 
-class TaskItem(models.Model):
+class Task(models.Model):
   # Priority Choices
   PRIORITY_CHOICES = [
     ('C', 'Critical'),
@@ -64,7 +66,7 @@ class TaskItem(models.Model):
   due_date = models.DateTimeField(default=one_week_hence)
   completed = models.BooleanField(default=False)
   completed_date = models.DateTimeField(null=True, blank=True)
-  task_list = models.ForeignKey(TaskList, on_delete=models.CASCADE)
+  project = models.ForeignKey(Project, on_delete=models.CASCADE)
   
   # New Fields
   priority = models.CharField(max_length=1, choices=PRIORITY_CHOICES, default='M')

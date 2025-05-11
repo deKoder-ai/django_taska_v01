@@ -34,11 +34,16 @@
         <ul>
           <h2>Projects:</h2>
           <button class="sb-btn">Tasks Due Today</button>
-          <button class="sb-btn">asdfgh</button>
-          <button class="sb-btn">asdffshtrt</button>
-          <button class="sb-btn">dsfghjukouiytr</button>
-          <button class="sb-btn">sfdsrte5ygdrf</button>
-          <!-- fill with task list ordered by date -->
+          <ul class="projects">
+            {% for project in projects %}
+              <button class="sb-btn">
+                <span>{{ project.name }}</span>
+                <span>{{ project.due_date|date:"M d, Y" }}</span>
+              </button>
+            {% empty %}
+              <h3 class="no-projects">No projects yet</h3>
+            {% endfor %}
+          </ul>
         </ul>
       </div>
       <div class="content"></div>

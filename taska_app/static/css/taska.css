@@ -71,7 +71,7 @@
   font-weight: 500;
   padding: 1rem 2.3rem;
 }
-.sb-btn {
+.sb-btn, .no-projects {
   font-size: 1.6rem;
   width: 100%;
   padding: 1rem 0rem 1rem 2.3rem;

@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import CustomUserCreationForm
+from .models import Project
 
 def index(request):
     if request.user.is_authenticated:
@@ -12,7 +13,8 @@ def index(request):
 
 @login_required
 def taska(request):
-  return render(request, 'taska_app/taska.html')
+    projects = Project.objects.filter(user=request.user).order_by('due_date')
+    return render(request, 'taska_app/taska.html', {'projects': projects})
 
 def register(request):
     if request.method == 'POST':
