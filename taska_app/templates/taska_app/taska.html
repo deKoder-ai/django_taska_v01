@@ -1,7 +1,33 @@
 {% extends 'taska_app/base.html' %}
+{% load static %}
+
+{% block title %}taska | App{% endblock %}
+
+{% block extra_css %}
+  <link rel='stylesheet' href='{% static "css/taska.css" %}'>
+{% endblock %}
 
 {% block content %}
-  <h1>Task A</h1>
-  <p>This is protected content for logged-in users only.</p>
-  <p><a href="{% url 'index' %}">Return to home</a></p>
+  {% if user.is_authenticated %}
+    <nav class="navbar">
+      <a href="" class="logo">taska</a>
+      <p>{{ user.username }}</p>
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="nav-logout">Logout</button>
+      </form>
+    </nav>
+
+
+
+    <footer class="foot">
+      <div></div>
+      <p><span class="logo-font">taska |</span><span>&nbsp;&copy;2025</span></p>
+      <div></div>
+    </footer>
+  {% endif %}
+{% endblock %}
+
+{% block extra_js %}
+  <script src='{% static "js/taska.js" %}'></script>
 {% endblock %}

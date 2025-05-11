@@ -18,3 +18,6 @@ To do:
 - Remove references to taska.html
   - project urls.py
   - app views.py
+
+- register task models to admin page
+- build and style taska page

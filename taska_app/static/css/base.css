@@ -2,8 +2,9 @@
 @import url(../fonts/poppins.css);
 
 @font-face {
-  font-family: dechora;
-  src: url(../fonts/dechora-zone.woff2) format('woff2');
+  font-family: merienda;
+  font-weight: 1 999;
+  src: url(../fonts/Merienda-VariableFont_wght.ttf) format('truetype-variations');
 }
 @font-face {
   font-family: journal;
@@ -29,22 +30,23 @@
 :root {
   /* variables */
   --font-stack: poppins, system-ui, Helvetica, sans-serif;
-  --dechora-stack: dechora, system-ui, sans-serif;
+  --merienda-stack: 'merienda', system-ui, sans-serif;
   --journal-stack: journal, system-ui, sans-serif;
   --aks-stack: aks, system-ui, sans-serif;
   --aksItalic-stack: aksItalic, system-ui, sans-serif;
   /* site colors */
-  --color: #ffffffde;
-  --bcg: #141424;
-  --red: #aa3633;
-  --blue: #6495ed;
-  --beige: #bd9a73;
-  --beige-shadow: #836c528c;
-  --bcgcol: #2c2d2d;
-  --bcgcol2: #422f2f;
-  --textcol: #fffeff;
-  --dark: #1b1b1b;
-  --invis: #00000000;
+  --col-prim: #3f71ce; /* Brand color – primary buttons, active states, links */
+  --col-sec: #5c8edc; /* Lighter variation – hover states, secondary buttons */
+  --col-bcg: #121418; /* Soft, cool near-white background (easy on the eyes) */
+  --col-surface: #1f2227; /* Clean white for cards, modals, containers */
+  --col-text-prim: #f2f4f7; /* Main body text – softened black for reduced contrast strain */
+  --col-text-sec: #aeb4c2; /* Muted gray – subtitles, hints, UI text */
+  --col-accent: #7edbd3; /* Cool complementary mint – tags, hover effects, accents */
+  --col-neutral: #3a3f47; /* Borders, dividers, disabled elements */
+  --col-ok: #6fcf97; /* Success messages, check marks */
+  --col-warn: #f2c94c; /* Soft amber – warnings without harshness */
+  --col-err: #e9033d; /* Muted red – error messages, validation */
+  --col-info: #4f9aff; /* Toned-down blue – tips, notifications */
 }
 
 html {
@@ -53,8 +55,8 @@ html {
   font-size: 10px;
   line-height: 1.5;
   font-weight: 400;
-  color: var(--color);
-  background-color: var(--bcg);
+  color: var(--col-text-prim);
+  background-color: var(--col-bcg);
   /* overflow-x: hidden; */
 }
 
@@ -82,43 +84,8 @@ button {
 /* _________________________________________________________________________
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
-.navbar {
-  width: 100vw;
-  height: 50px;
-  background-color: black;
-  display: grid;
-  grid-template-columns: 200px 2fr 1fr 1fr 1fr 70px;
-  color: var(--red);
-  border-bottom: 2px solid var(--beige);
-}
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  font-family: var(--poppins-stack);
-  font-weight: 600;
-  letter-spacing: 0.5rem;
-  text-shadow: 1px 1px 2px #d1194770;
-}
-.logo:hover, .nav-link:hover {
-  color: var(--red);
-  text-decoration: none;
-  border-left: 2px solid #ffffff28;
-  border-right: 2px solid #ffffff28;
-  text-shadow: -1px -1px 2px #e9033d5d;
-}
-.nav-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--poppins-stack);
-  color: var(--textcol);
-  font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 0.2rem;
-  text-shadow: -1px -1px 2px #e9033d5d;
-}
+
+
 
 /* _________________________________________________________________________
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
@@ -153,20 +120,109 @@ button {
   text-shadow: -1px -1px 2px #e9033d5d;
 } */
 
-.card {
+
+h2 {
+  font-weight: 500;
+}
+.logo-font {
+  font-family: var(--merienda-stack);
+  font-weight: 700;
+}
+
+.page-flex-center {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.flexCenter {
+.flex-center {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.flex-between {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line-spacer {
+  margin-top: 1.4rem;
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+
+.form-container {
+  padding: 2.5rem 5rem;
+  background-color: white;
+  border: 2px solid #464646;
+  border-radius: 17px;
+  color: black;
+  font-size: 1.6rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.644);
+}
+.form-container h2 {
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+.form-container .form-text-input {
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 7px;
+  padding: 0.3rem 1rem;
+  margin-left: 1rem;
+}
+.form-btn {
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding: 0.5rem 3.5rem;
+  border-radius: 17px;
+  border: 2px solid #585858;
+  box-shadow: 3px 3px 3px #00000052;
+  background-color: var(--col-prim);
+  margin-top: -1rem;
+}
+.form-btn:hover, .form-btn:focus {
+  background-color: var(--col-sec);
+  font-weight: 600;
+  box-shadow: 3px 3px 3px #0000008e;
+  text-shadow: 1px 1px 2px rgba(56, 56, 197, 0.315);
+  outline: none;
+}
+.mt-3, .remember-me, .have-account {
+  font-size: 1.5rem;
+}
+.mt-3, .have-account {
+  margin-top: 1.7rem;
+}
+.have-account {
+  text-align: center;
+}
+.alert, .form-errors, .error-msg {
+  color: var(--col-err);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.error-msg {
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+.info-text, .info-text:hover, .info-text:focus {
+  color: var(--col-prim);
+  font-weight: 500;
+}
+.info-text:hover, .info-text:focus {
+  font-weight: 600;
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+
 
 
 

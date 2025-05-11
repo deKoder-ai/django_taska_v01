@@ -1,15 +1,13 @@
 {% extends 'taska_app/base.html' %}
 {% load static %}
 
-{% block extra_css %}
-  <link rel='stylesheet' href='{% static "css/register.css" %}'>
-{% endblock %}
+{% block title %}taska | Register{% endblock %}
 
 {% block content %}
   <div class="page-flex-center">
     <div class="form-container">
       <div class="flex-between">
-        <h2>taska</h2>
+        <h2 class="logo-font">taska</h2>
         <h2>Register</h2>
       </div>
 
@@ -51,12 +49,13 @@
           <div class="error-msg">{{ form.password2.errors }}</div>
         {% endif %}
 
+        <div class="flex-center line-spacer"></div>
         <div class="flex-center line-spacer">
-          <button type="submit" class="register-btn">Register</button>
+          <button type="submit" class="form-btn">Register</button>
         </div>
       </form>
 
-      <p class="have-account">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+      <p class="have-account">Already have an account? <a href="{% url 'login' %}" class="info-text">Login here</a></p>
     </div>
   </div>
 {% endblock %}
