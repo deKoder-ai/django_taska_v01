@@ -65,6 +65,10 @@
   z-index: 100;
   border-right: 1px solid var(--col-neutral);
   box-shadow: 5px 0px 3px rgba(0, 0, 0, 0.699);
+  overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in WebKit-based browsers */
 }
 .sidebar h2 {
   font-size: 2.2rem;
@@ -78,6 +82,9 @@
   padding: 1rem 1.5rem 1rem 2.3rem;
   text-align: left;
   font-weight: 400;
+  /* overflow: hidden;
+  height: 4rem;
+  text-align: start; */
 }
 .sb-btn:hover {
   font-weight: 500;
@@ -86,18 +93,35 @@
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.479);
 }
 .sb-freq-btn-div {
-  padding: 1.2rem 2.3rem 0rem 2.3rem;
+  padding: 0.7rem 0.8rem 0rem 1.9rem;
 }
 .sb-freq-btn {
-  padding: 1rem 0rem;
+  padding: 0.5rem 0rem;
   font-size: 1.7rem;
   font-weight: 600;
   width: 25%;
   border: 1px solid var(--col-neutral);
-  border-radius: 5px;
+  border-radius: 7px;
   text-align: center;
+  margin: 0px 2px 0px 2px;
 }
 
+.new-project {
+  background-image: url(../img/new_project.svg);
+  background-repeat: no-repeat;
+  background-size: 85% 85%;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  margin-top: 0.7rem;
+  border-radius: 7px;
+  outline: 1px solid var(--col-neutral);
+}
+.new-project:hover {
+  background-color: var(--col-prim);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.973);
+}
 .pl-duedate {
   font-size: 1.2rem;
   font-weight: 400;

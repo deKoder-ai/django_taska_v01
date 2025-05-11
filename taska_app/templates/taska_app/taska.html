@@ -35,7 +35,10 @@
           </div>
         </ul>
         <ul>
-          <h2>Projects:</h2>
+          <div class="flex-between">
+            <h2>Projects:</h2>
+            <button class="new-project" id="newProject"></button>
+          </div>
           <button class="sb-btn">Tasks Due Today</button>
           <ul class="projects">
             {% for project in projects %}
