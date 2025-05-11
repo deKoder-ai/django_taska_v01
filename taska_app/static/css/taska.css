@@ -3,7 +3,7 @@
   height: 55px;
   background-color: var(--col-surface);
   display: grid;
-  grid-template-columns: 200px 2fr 200px;
+  grid-template-columns: 200px 2fr 200px 50px;
   align-items: center;
   text-align: center;
   font-size: 1.7rem;
@@ -50,6 +50,148 @@
   text-shadow: -1px -1px 2px #e9033d5d;
 }
 
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+.header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: #f0f0f0;
+  position: relative;
+  z-index: 30;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: #333;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+.main-container {
+  width: 100vw;
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  position: relative;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%;
+  background: #e0e0e0;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 25;
+}
+
+.sidebar-hover-area {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--hover-area-width);
+  height: 100%;
+  z-index: 15;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    height: calc(100vh - var(--header-height));
+    transform: translateX(-100%);
+    z-index: 20;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-hover-area {
+    display: block;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar-close {
+    display: block;
+  }
+  
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
+
+@media (min-width: 651px) {
+  .sidebar-overlay {
+    display: none !important;
+  }
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
 
 .foot {
   position: absolute;

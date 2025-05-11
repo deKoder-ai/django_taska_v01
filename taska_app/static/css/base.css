@@ -47,6 +47,11 @@
   --col-warn: #f2c94c; /* Soft amber – warnings without harshness */
   --col-err: #e9033d; /* Muted red – error messages, validation */
   --col-info: #4f9aff; /* Toned-down blue – tips, notifications */
+
+  --mobile-breakpoint: 650px;
+  --sidebar-width: 350px;
+  --hover-area-width: 20px;
+  --header-height: 105px;
 }
 
 html {
