@@ -83,7 +83,9 @@ body {
   min-height: 100vh;
 }
 button {
+  color: var(--col-text-prim);
   cursor: pointer;
+  background-color: inherit;
 }
 
 /* _________________________________________________________________________
@@ -156,7 +158,9 @@ h2 {
 .line-spacer {
   margin-top: 1.4rem;
 }
-
+.z-index-1000 {
+  z-index: 1000;
+}
 /* _________________________________________________________________________
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
@@ -231,7 +235,7 @@ h2 {
 
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -242,4 +246,4 @@ h2 {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

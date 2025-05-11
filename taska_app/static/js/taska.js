@@ -1,54 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.querySelector(".sidebar");
-  const sidebarHoverArea = document.querySelector(".sidebar-hover-area");
-  const sidebarOverlay = document.querySelector(".sidebar-overlay");
-  const sidebarClose = document.querySelector(".sidebar-close");
-  const sidebarToggle = document.querySelector(".sidebar-toggle");
-  const mobileBreakpoint = 650;
+// document.addEventListener("DOMContentLoaded", function () {
+//   const sidebar = document.getElementById("sidebar");
+//   const mainContainer = document.getElementById("content");
 
-  function checkMobile() {
-    return window.innerWidth <= mobileBreakpoint;
-  }
+//   function updateLayout() {
+//     if (window.innerWidth >= 1000) {
+//       // Desktop view
+//       sidebar.style.transform = "translateX(0)";
+//       mainContainer.style.marginLeft = "200px";
+//     } else {
+//       // Mobile/tablet view
+//       sidebar.style.transform = "translateX(-180px)";
+//       mainContainer.style.marginLeft = "0";
+//     }
+//   }
 
-  // Toggle sidebar on hover (mobile only)
-  sidebarHoverArea.addEventListener("mouseenter", () => {
-    if (checkMobile()) {
-      openSidebar();
-    }
-  });
+//   // Initialize layout
+//   updateLayout();
 
-  // Toggle sidebar with button
-  sidebarToggle.addEventListener("click", toggleSidebar);
+//   // Update on resize
+//   window.addEventListener("resize", updateLayout);
 
-  // Close sidebar with close button
-  sidebarClose.addEventListener("click", closeSidebar);
+//   // Handle hover for mobile view
+//   sidebar.addEventListener("mouseenter", function () {
+//     if (window.innerWidth < 1000) {
+//       sidebar.style.transform = "translateX(0)";
+//     }
+//   });
 
-  // Close sidebar when clicking outside
-  sidebarOverlay.addEventListener("click", closeSidebar);
-
-  function toggleSidebar() {
-    if (sidebar.classList.contains("active")) {
-      closeSidebar();
-    } else {
-      openSidebar();
-    }
-  }
-
-  function openSidebar() {
-    if (!checkMobile()) return;
-    sidebar.classList.add("active");
-    sidebarOverlay.classList.add("active");
-  }
-
-  function closeSidebar() {
-    sidebar.classList.remove("active");
-    sidebarOverlay.classList.remove("active");
-  }
-
-  // Handle window resize
-  window.addEventListener("resize", () => {
-    if (!checkMobile()) {
-      closeSidebar();
-    }
-  });
-});
+//   sidebar.addEventListener("mouseleave", function () {
+//     if (window.innerWidth < 1000) {
+//       sidebar.style.transform = "translateX(-180px)";
+//     }
+//   });
+// });

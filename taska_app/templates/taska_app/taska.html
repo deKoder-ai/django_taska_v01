@@ -9,32 +9,39 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <nav class="navbar">
+    <nav class="navbar z-index-1000">
       <a href="" class="logo">taska</a>
       <p>{{ user.username }}</p>
       <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit" class="nav-logout">Logout</button>
-        <button class="sidebar-toggle" aria-label="Toggle sidebar">
+        <!-- <button class="sidebar-toggle" aria-label="Toggle sidebar">
           <span class="hamburger"></span>
-        </button>
+        </button> -->
       </form>
     </nav>
 
-    <div class="main-container">
-      <!-- <div class="sidebar-overlay"></div> -->
-      <div class="sidebar-hover-area"></div>
-      
-      <aside class="sidebar">
-        <button class="sidebar-close" aria-label="Close sidebar">×</button>
-        <div class="sidebar-content">
-          Sidebar Content
-        </div>
-      </aside>
-
-      <main class="content">
-        <h1>Hello World</h1>
-      </main>
+    <div class="main">
+      <div class="sidebar">
+        <ul>
+          <div class="flex-between sb-freq-btn-div">
+            <button class="sb-freq-btn sb-btn ">D</button>
+            <button class="sb-freq-btn sb-btn ">W</button>
+            <button class="sb-freq-btn sb-btn ">M</button>
+            <button class="sb-freq-btn sb-btn ">Y</button>
+          </div>
+        </ul>
+        <ul>
+          <h2>Projects:</h2>
+          <button class="sb-btn">Tasks Due Today</button>
+          <button class="sb-btn">asdfgh</button>
+          <button class="sb-btn">asdffshtrt</button>
+          <button class="sb-btn">dsfghjukouiytr</button>
+          <button class="sb-btn">sfdsrte5ygdrf</button>
+          <!-- fill with task list ordered by date -->
+        </ul>
+      </div>
+      <div class="content"></div>
     </div>
 
     <footer class="foot">
