@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from taska_app import views
+from django.conf import settings  # Add this import
+from django.conf.urls.static import static  # Add this import
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
     
     # Custom auth URLs
     path('accounts/login/', auth_views.LoginView.as_view(template_name='taska_app/login.html'), name='login'),
@@ -33,4 +35,8 @@ urlpatterns = [
     # Your app URLs
     path('', views.index, name='index'),
     path('taska/', views.taska, name='taska'),
+    path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

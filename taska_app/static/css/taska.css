@@ -69,12 +69,13 @@
 .sidebar h2 {
   font-size: 2.2rem;
   font-weight: 500;
-  padding: 1rem 2.3rem;
+  padding: 1rem 2.3rem 0.2rem 2.3rem;
+  text-decoration: underline;
 }
 .sb-btn, .no-projects {
   font-size: 1.6rem;
   width: 100%;
-  padding: 1rem 0rem 1rem 2.3rem;
+  padding: 1rem 1.5rem 1rem 2.3rem;
   text-align: left;
   font-weight: 400;
 }
@@ -96,6 +97,13 @@
   border-radius: 5px;
   text-align: center;
 }
+
+.pl-duedate {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: right;
+}
+
 .content {
   flex-grow: 1;
   height: calc(100vh - 105px);

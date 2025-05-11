@@ -1,6 +1,6 @@
 from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User, Project, Task
 
 from django.urls import reverse
 from django.utils.html import format_html
@@ -52,3 +52,47 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(User, CustomUserAdmin)
 
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'due_date', 'created_date')
+    list_filter = ('user', 'due_date')
+    search_fields = ('title', 'user__username')
+    date_hierarchy = 'due_date'
+    
+    # Show only current user's projects in dropdown (for staff users)
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(user=request.user)
+
+    # Set current user as default when creating projects
+    def save_model(self, request, obj, form, change):
+        if not obj.user_id:
+            obj.user = request.user
+        super().save_model(request, obj, form, change)
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('title', 'project', 'priority', 'due_date', 'completed')
+    list_filter = ('project', 'priority', 'completed', 'frequency')
+    search_fields = ('title', 'project__title', 'description')
+    date_hierarchy = 'due_date'
+    list_editable = ('completed',)  # Allows bulk editing
+    raw_id_fields = ('project',)  # Better for large project lists
+    
+    # Show priority as colored labels
+    @admin.display(description='Priority')
+    def colored_priority(self, obj):
+        colors = {
+            'C': 'red',
+            'H': 'orange',
+            'M': 'yellow',
+            'L': 'green',
+            'Z': 'gray'
+        }
+        return format_html(
+            '<span style="color: {};">{}</span>',
+            colors.get(obj.priority, 'black'),
+            obj.get_priority_display()
+        )

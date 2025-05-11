@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +133,7 @@ SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds (optional)
 SESSION_SAVE_EVERY_REQUEST = True
 
 AUTH_USER_MODEL = 'taska_app.User'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

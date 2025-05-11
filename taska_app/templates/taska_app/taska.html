@@ -36,9 +36,9 @@
           <button class="sb-btn">Tasks Due Today</button>
           <ul class="projects">
             {% for project in projects %}
-              <button class="sb-btn">
-                <span>{{ project.name }}</span>
-                <span>{{ project.due_date|date:"M d, Y" }}</span>
+              <button class="sb-btn flex-between">
+                <span>{{ project.title }}</span>
+                <span class="pl-duedate">{{ project.due_date|date:"d/m/y" }}</span>
               </button>
             {% empty %}
               <h3 class="no-projects">No projects yet</h3>
