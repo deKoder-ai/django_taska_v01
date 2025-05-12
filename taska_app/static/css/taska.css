@@ -135,8 +135,8 @@
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
 
-
 .foot {
+  color: var(--textcol);
   position: absolute;
   bottom: 0;
   background-color: var(--col-surface);
@@ -144,8 +144,10 @@
   height: 50px;
   display: grid;
   /* grid-template-columns: 200px 2fr 200px; */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: 0.2rem;
   text-shadow: -2px -2px 2px #000000b0;
