@@ -1,22 +1,31 @@
 {% extends 'taska_app/base.html' %}
 {% load static %}
 
+{% block extra_head %}
+  <script>
+    // Check for direct URL access
+    window.PROJECT_ID = "{{ project_id|default:'' }}";
+  </script>
+{% endblock %}
+
 {% block title %}taska | App{% endblock %}
 
 {% block extra_css %}
   <link rel='stylesheet' href='{% static "css/taska.css" %}'>
+  <link rel="stylesheet" href="{% static 'css/project-loader.css' %}">
 {% endblock %}
 {% block extra_js %}
   <script src='{% static "js/taska.js" %}'></script>
   <script src='{% static "js/new_project.js" %}'></script>
+  <script src="{% static 'js/project-loader.js' %}"></script>
 {% endblock %}
 
 {% block content %}
   {% if user.is_authenticated %}
     <nav class="navbar z-index-1000">
       <a href="" class="logo">taska</a>
-      <div>{{ projects }}</div>
-      <div>01/02/23</div>
+      <div id="project-title">x</div>
+      <div id="project-due-date">x</div>
       <!-- <button class="sidebar-toggle" aria-label="Toggle sidebar">
         <span class="hamburger"></span>
       </button> -->
@@ -51,6 +60,19 @@
         </ul>
       </div>
       <div class="content">
+        <!-- load project details -->
+        <div id="loading" class="loading-spinner">
+          <div class="spinner"></div>
+        </div>
+        
+        <div id="error-message" class="error-alert" style="display:none;"></div>
+
+        <div class="tasks-container">
+          <ul id="task-list">
+            <!-- Tasks will be inserted here dynamically -->
+          </ul>
+        </div>
+
         <!-- new project form -->
         <div id="newProjectContainer" style="display:none">
           {% include "taska_app/new_project.html" %}

@@ -66,10 +66,5 @@ Do not write any code until you are sure you understand the request.
 
 Please ask as many questions as you need to help clarify what I intend to do and/or give suggestions for improvements to my prompt.
 
-Do you have any further questions to clarify my intentions?
+c
 
-
-
-Let's do some cleaning up in the rest of the app.
-I have some questions:
-1. Is index.html still required?

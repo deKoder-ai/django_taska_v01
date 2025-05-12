@@ -24,4 +24,14 @@ urlpatterns = [
     path('create_project/', 
          views.create_project, 
          name='create_project'),
+
+    # Project detail page (HTML)
+    path('projects/<int:project_id>/', 
+        views.project_detail_html, 
+        name='project_detail_html'),
+    
+    # API endpoint (JSON)
+    path('api/projects/<int:project_id>/', 
+        views.project_detail_api, 
+        name='project_detail_api'),
 ]
