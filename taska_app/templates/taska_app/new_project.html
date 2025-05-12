@@ -1,0 +1,54 @@
+<div id="newProjectTemplate">
+  <div class="flex-center mask">
+    <h2>Create New Project</h2>
+    <form method="post" action="{% url 'create_project' %}" id="project-form">  <!-- Ensure this URL is defined in urls.py -->
+      {% csrf_token %}
+      
+      <!-- Display non-field errors (e.g., title uniqueness) -->
+      {% if form.non_field_errors %}
+        <div class="error-message">
+          {{ form.non_field_errors }}
+        </div>
+      {% endif %}
+      
+      <div class="form-group">
+        <label for="title">Project Title*</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          class="form-control" 
+          required
+          placeholder="Enter project title"
+          value="{{ form.title.value|default:'' }}"
+        >
+        {% if form.title.errors %}
+          <div class="error-message">
+            {{ form.title.errors }}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-group">
+        <label for="due_date">Due Date</label>
+        <input 
+          type="date" 
+          id="due_date" 
+          name="due_date" 
+          class="form-control"
+          value="{{ form.due_date.value|default:'' }}"
+        >
+        {% if form.due_date.errors %}
+          <div class="error-message">
+            {{ form.due_date.errors }}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Create Project</button>
+        <a href="{% url 'index' %}" class="btn-cancel">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

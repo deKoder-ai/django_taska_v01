@@ -6,14 +6,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // Set the scroll behavior to smooth
   sidebar.style.scrollBehavior = "smooth";
 
-  const newProject = document.getElementById("newProject");
+  // -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+  // __new project form
+
   newProject.addEventListener("click", function () {
     console.log("New project button clicked");
+
+    // Show New Project Form
+    // const template = document.getElementById('newProjectTemplate').cloneNode(true);
+    const container = document.getElementById("newProjectContainer");
+    container.style.display = "block";
 
     // Scroll back to top
     sidebar.scrollTop = 0;
   });
 
+  // -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+  // __sidebar project buttons
   document.querySelectorAll(".sb-btn").forEach((button) => {
     button.addEventListener("click", function () {
       const projectId = this.id.replace("project-", "");

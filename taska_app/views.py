@@ -1,22 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from .forms import CustomUserCreationForm
+from django.contrib.auth import login
+from .forms import CustomUserCreationForm, ProjectForm
 from .models import Project
 
 def index(request):
+    """Handle root URL - shows taska if authenticated, else redirects to login"""
     if request.user.is_authenticated:
-        return redirect('taska')
-    return render(request, 'taska_app/login.html')  # This is correct if template is in right location
-
-@login_required
-def taska(request):
-    projects = Project.objects.filter(user=request.user).order_by('due_date')
-    return render(request, 'taska_app/taska.html', {'projects': projects})
+        projects = Project.objects.filter(user=request.user).order_by('due_date')
+        return render(request, 'taska_app/taska.html', {'projects': projects})
+    return redirect('login')
 
 def register(request):
+    """Handle user registration"""
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -27,17 +23,16 @@ def register(request):
         form = CustomUserCreationForm()
     return render(request, 'taska_app/register.html', {'form': form})
 
-def custom_login(request):
+@login_required
+def create_project(request):
+    """Handle project creation"""
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        remember_me = request.POST.get('remember_me', False)
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            if not remember_me:
-                request.session.set_expiry(0)  # Session expires when browser closes
-            return redirect('taska')
-    
-    return render(request, 'taska_app/login.html')
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = request.user
+            project.save()
+            return redirect('index')
+    else:
+        form = ProjectForm()
+    return render(request, 'taska_app/new_project.html', {'form': form})

@@ -98,36 +98,6 @@ button {
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
 
-.foot {
-  position: absolute;
-  bottom: 0;
-  background-color: black;
-  width: 100vw;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--poppins-stack);
-  color: var(--textcol);
-  font-size: 1.2rem;
-  font-weight: 400;
-  letter-spacing: 0.2rem;
-  text-shadow: -1px -1px 2px #e9033d5d;
-  border-top: 2px solid var(--beige);
-}
-/* .footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--poppins-stack);
-  color: var(--textcol);
-  font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 0.2rem;
-  text-shadow: -1px -1px 2px #e9033d5d;
-} */
-
-
 h2 {
   font-weight: 500;
 }
@@ -161,6 +131,16 @@ h2 {
 .z-index-1000 {
   z-index: 1000;
 }
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #000000c5;
+}
+
 /* _________________________________________________________________________
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */

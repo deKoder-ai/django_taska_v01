@@ -32,17 +32,10 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
   text-decoration: underline;
 }
-.nav-logout {
-  width: 100%;
-  height: 55px;
-  background-color: inherit;
-  color: inherit;
-}
 .nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--poppins-stack);
   color: var(--textcol);
   font-size: 1.8rem;
   font-weight: 400;
@@ -79,7 +72,7 @@
 .sb-btn, .no-projects {
   font-size: 1.6rem;
   width: 100%;
-  padding: 1rem 1.5rem 1rem 2.3rem;
+  padding: 0.9rem 1.5rem 0.9rem 2.3rem;
   text-align: left;
   font-weight: 400;
   /* overflow: hidden;
@@ -138,29 +131,10 @@
 }
 
 
-@media (min-width: 1000px) {
-  .navbar {
-    grid-template-columns: 350px 2fr 200px;
-  }
-  .sidebar {
-    width: 350px;
-  }
-}
-@media (max-width: 999px) {
-  .navbar {
-    grid-template-columns: 170px 2fr 170px;
-  }
-  .sidebar {
-    display: none;
-  }
-  .content {
-    width: 100%;
-  }
-}
-
 /* _________________________________________________________________________
 -好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+
 
 .foot {
   position: absolute;
@@ -169,11 +143,52 @@
   width: 100vw;
   height: 50px;
   display: grid;
-  grid-template-columns: 200px 2fr 200px;
+  /* grid-template-columns: 200px 2fr 200px; */
   text-align: center;
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.2rem;
   text-shadow: -2px -2px 2px #000000b0;
   border-top: 1px solid var(--col-neutral);
+  overflow: hidden;
+}
+.footer-logout {
+  width: 100%;
+  height: 55px;
+  background-color: inherit;
+  color: inherit;
+}
+.footer-logout:hover, 
+.footer-logout:focus {
+  color: var(--col-sec);
+  font-weight: 600;
+  border-left: 2px solid var(--col-neutral);
+  border-right: 2px solid var(--col-neutral);
+  text-shadow: 3px 3px 3px #3d3d3da6;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
+  text-decoration: underline;
+}
+
+/* _________________________________________________________________________
+-好运-0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0☠☠0☢0-----0☢0-好运-
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+
+@media (min-width: 1000px) {
+  .navbar, .foot {
+    grid-template-columns: 350px 2fr 200px;
+  }
+  .sidebar {
+    width: 350px;
+  }
+}
+@media (max-width: 999px) {
+  .navbar, .foot {
+    grid-template-columns: 170px 2fr 170px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    width: 100%;
+  }
 }

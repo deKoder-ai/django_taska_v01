@@ -8,22 +8,20 @@
 {% endblock %}
 {% block extra_js %}
   <script src='{% static "js/taska.js" %}'></script>
+  <script src='{% static "js/new_project.js" %}'></script>
 {% endblock %}
 
 {% block content %}
   {% if user.is_authenticated %}
     <nav class="navbar z-index-1000">
       <a href="" class="logo">taska</a>
-      <p>{{ user.username }}</p>
-      <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="nav-logout">Logout</button>
-        <!-- <button class="sidebar-toggle" aria-label="Toggle sidebar">
-          <span class="hamburger"></span>
-        </button> -->
-      </form>
+      <div></div>
+      <div></div>
+      <!-- <button class="sidebar-toggle" aria-label="Toggle sidebar">
+        <span class="hamburger"></span>
+      </button> -->
     </nav>
-
+    
     <div class="main">
       <div class="sidebar">
         <ul>
@@ -52,14 +50,27 @@
           </ul>
         </ul>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        <!-- new project form -->
+        <div id="newProjectContainer" style="display:none">
+          {% include "taska_app/new_project.html" %}
+        </div>
+      </div>
     </div>
 
     <footer class="foot">
-      <div></div>
-      <p><span class="logo-font">taska |</span><span>&nbsp;&copy;2025</span></p>
-      <div></div>
+      <p>
+        <span class="logo-font">taska |</span><span>&nbsp;&copy;2025</span>
+      </p>
+      <p>{{ user.username }}</p>
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="footer-logout">Logout</button>
+      </form>
     </footer>
+
+    
+
   {% endif %}
 {% endblock %}
 

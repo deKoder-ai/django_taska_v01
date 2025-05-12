@@ -37,3 +37,27 @@ When the user hovers over an invisible div, 20px wide, at the left of the screen
 The close button should only be visible in mobile mode (screen width 650px or less).
 You should use a combination of html, css, and js to achieve this. The code should be written in separate files.
 Do you have any questions to help clarify what I want you to do or any suggestions to improve this prompt before we begin coding?
+
+
+
+__Prompt Components
+
+Please label each of your replies with a unique slug to aid in referring back to specific replies later. These do not need to be human understandable.
+
+Please number each of your questions individually.
+
+Please use two spaces to indent and single quotes in any code you write.
+
+Any html, css, and js should be written to separate files.
+
+Do not write any code until you are sure you understand the request.
+
+Please ask as many questions as you need to help clarify what I intend to do and/or give suggestions for improvements to my prompt.
+
+Do you have any further questions to clarify my intentions?
+
+
+
+Let's do some cleaning up in the rest of the app.
+I have some questions:
+1. Is index.html still required?
