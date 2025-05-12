@@ -11,6 +11,18 @@ python3 manage.py migrate
 
 python3 manage.py runserver
 
+__new branch -->
+git checkout -b your_branch
+git push -u origin your_branch
+
+__merge branch to main
+git checkout main
+git merge branch_name
+git push origin main
+
+__undo uncommitted changes
+git reset --hard
+
 To do:
 - Build task list models
 - Views/forms to handle file uploads for attachment
